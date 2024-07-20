@@ -163,7 +163,7 @@ Image:
 	Max used CUDA memory : 7.655GiB
 	=======================================
  Image:
-![i2i_1024_withoutonediff](https://github.com/user-attachments/assets/1fdca28e-62d9-4fdb-922d-d469d85a1969)
+ ![i2i_512_withoutonediff](https://github.com/user-attachments/assets/a9273116-ab48-422e-a01a-76c73a4ca8af)
 
 ## Conclusion
 
