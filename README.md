@@ -110,10 +110,31 @@ Image:
 
 
 ### Image-to-image
+    for Image 2 Image the images i am using are also the generated images from the above models under different size
 
 #### timbrooks/instruct-pix2pix
+##### 1024x1024 
+###### with OneDiff
 
 #### SG161222/RealVisXL_V4.0
+##### 1024x1024 
+###### with OneDiff
+
+###### without OneDiff
+
+##### 512x512 
+###### with OneDiff
+	Warmup time: 553.390s
+	=======================================
+	=======================================
+	Inference time: 0.542s
+	Iterations per second: 25.336
+	Max used CUDA memory : 8.977GiB
+	=======================================
+ Image:
+ ![testi2i one diff ](https://github.com/user-attachments/assets/7a4d6ad7-0b7a-42fd-b267-b394ef4c081b)
+ 
+ ###### without OneDiff
 
 ## Conclusion
 
