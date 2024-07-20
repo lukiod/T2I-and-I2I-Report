@@ -117,8 +117,8 @@ Image:
 ###### with OneDiff
 
 #### SG161222/RealVisXL_V4.0
-##### 1024x1024 
-###### with OneDiff
+##### 1024x1024  Prompt(make it into a cyborg) , Image used 1024 x 1024 without onediff generated image by RealVisXL_4.0
+###### with OneDiff 
 	Warmup time: 218.133s
 	=======================================
 	=======================================
@@ -131,8 +131,18 @@ Image:
 
 
 ###### without OneDiff
+	Warmup time: 2.355s
+	=======================================
+	=======================================
+	Inference time: 1.585s
+	Iterations per second: 8.327
+	Max used CUDA memory : 10.474GiB
+	=======================================
+Image:
+![i2i_1024_withoutonediff](https://github.com/user-attachments/assets/f1cdc374-c2b3-49c6-bb1d-263426b99464)
 
-##### 512x512 
+
+##### 512x512  Prompt(turn it into a painting) , Image used 512 x 512 without onediff generated image by RealVisXL_4.0
 ###### with OneDiff
 	Warmup time: 553.390s
 	=======================================
@@ -145,6 +155,15 @@ Image:
  ![testi2i one diff ](https://github.com/user-attachments/assets/7a4d6ad7-0b7a-42fd-b267-b394ef4c081b)
  
  ###### without OneDiff
+ 	Warmup time: 1.654s
+	=======================================
+	=======================================
+	Inference time: 0.831s
+	Iterations per second: 13.513
+	Max used CUDA memory : 7.655GiB
+	=======================================
+ Image:
+![i2i_1024_withoutonediff](https://github.com/user-attachments/assets/1fdca28e-62d9-4fdb-922d-d469d85a1969)
 
 ## Conclusion
 
