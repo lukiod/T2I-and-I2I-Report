@@ -119,6 +119,16 @@ Image:
 #### SG161222/RealVisXL_V4.0
 ##### 1024x1024 
 ###### with OneDiff
+	Warmup time: 218.133s
+	=======================================
+	=======================================
+	Inference time: 1.079s
+	Iterations per second: 15.162
+	Max used CUDA memory : 11.489GiB
+ 	=================================
+  Image:
+======![i2i_1024_withonediff](https://github.com/user-attachments/assets/07edc615-9123-4827-874f-4134ed98875a)
+
 
 ###### without OneDiff
 
