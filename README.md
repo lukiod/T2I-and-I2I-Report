@@ -63,7 +63,19 @@ How did you test this? Performed 10 inference requests without and with OneDiff 
  ![RealVisXL_withoutonediff_512](https://github.com/user-attachments/assets/d77e3ab0-d447-41ec-946a-b19cb343443d)
 
 #### SG161222/RealVisXL_V4.0
-	Withour Onediff- Here are the model Inference time: 9.939s Iterations per second: 1.236 Max used CUDA memory : 9.718GiB 
+##### 1024x1024 
+###### with OneDiff
+
+###### without onediff
+       Warmup time: 3.034s
+	=======================================
+	=======================================
+	Inference time: 1.518s
+	Iterations per second: 8.333
+	Max used CUDA memory : 10.473GiB
+	=======================================
+ Image:
+ ![RealVisXL4 0__withoutonedifftest_1024](https://github.com/user-attachments/assets/66a55a66-6446-48cd-bd7f-8f9f7b17e604)
 
 ### Image-to-image
 
