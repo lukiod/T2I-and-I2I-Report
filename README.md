@@ -25,13 +25,12 @@ How did you test this? Performed 10 inference requests without and with OneDiff 
 	Iterations per second: 13.871
 	Max used CUDA memory : 11.464GiB
 	=======================================
-  Image 
+  Image:
   ![RealVisXL_withonediff_1024](https://github.com/user-attachments/assets/f58ac114-d1e6-43a0-912c-b759fd65836c)
 
 ######	Without OneDiff
-  Warmup time: 2.391s
+  	Warmup time: 2.391s
 	=======================================
-
 	=======================================
 	Inference time: 1.515s
 	Iterations per second: 8.331
@@ -49,6 +48,9 @@ How did you test this? Performed 10 inference requests without and with OneDiff 
 	Iterations per second: 17.770
 	Max used CUDA memory : 8.956GiB
 	=======================================
+ Image:
+ ![RealVisXL_withonediff_512](https://github.com/user-attachments/assets/2f8b6f0b-8a0e-432d-8efb-c1aff366c2b1)
+
 ###### without onediff
 	Warmup time: 1.696s
 	=======================================
@@ -57,6 +59,9 @@ How did you test this? Performed 10 inference requests without and with OneDiff 
 	Iterations per second: 13.081
 	Max used CUDA memory : 7.657GiB
 	=======================================
+ Image:
+ ![RealVisXL_withoutonediff_512](https://github.com/user-attachments/assets/d77e3ab0-d447-41ec-946a-b19cb343443d)
+
 #### SG161222/RealVisXL_V4.0
 	Withour Onediff- Here are the model Inference time: 9.939s Iterations per second: 1.236 Max used CUDA memory : 9.718GiB 
 
