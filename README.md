@@ -9,7 +9,17 @@ Does OneDiff improve the inference speed of our T2I and I2I pipelines while stil
 
 ## Method
 To evaluate the performance impact of OneDiff optimization, I conducted a series of tests using the provided benchmarking script. The methodology involved running the script multiple times for each model, with the number of inference steps consistently set to 10 across all runs. I specifically utilized the Nexfort compiler for all operations, as specified in the script. The testing process involved comparing the performance of runs with and without OneDiff optimization. For each run, I measured and recorded the inference time. To ensure fair comparisons, I maintained consistent parameters across all runs, including the number of inference steps and other relevant settings. This approach allowed for a structured assessment of the performance differences between standard model execution and the OneDiff-optimized version, all while leveraging the Nexfort compiler.
- 
+## Make the codes work
+### Dependencies
+`python3 -m  pip install -U torch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 torchao==0.1
+python3 -m  pip install -U nexfort`
+
+### How to run the file independently
+If you want to run with onediff use compiler nexfort otherwise none
+#### Text 2 Image Conversion
+`python3 ./text_to_image.py  --scheduler none --steps 50 --height 1024 --width 1024 --compiler none --compiler-config '{"mode": "max-optimize:max-autotune:low-precision", "memory_format": "channels_last", "dynamic": true}' --output-image ./test.png`
+#### Image 2 Image Conversion
+`python3 testi2i.py --input-image ./RealVisXL_withoutonediff_1024.png --height 1024 --width 1024 --compiler none --output-image ./i2i_1024__timebrooks_withoutonediff.png --prompt "turn it into a painting painted by paintbrush"`
 ## Results 
 
 ### Text-to-Image
