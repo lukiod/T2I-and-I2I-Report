@@ -12,6 +12,7 @@ To evaluate the performance impact of OneDiff optimization, I conducted a series
 ## Make the codes work
 ### Dependencies
 `python3 -m  pip install -U torch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 torchao==0.1`
+
 `python3 -m  pip install -U nexfort`
 
 ### How to run the file independently
