@@ -1,7 +1,6 @@
 # T2I-and-I2I-Report
 # What is OneDiff
-
-	OneDiff is an acceleration library for diffusion models, allowing for faster inference with minimal code changes. The name stands 	for "one line of code to accelerate diffusion models". It achieves this through features like PyTorch Module compilation and optimised GPU Kernels. 
+OneDiff is an acceleration library for diffusion models, allowing for faster inference with minimal code changes. The name stands 	for "one line of code to accelerate diffusion models". It achieves this through features like PyTorch Module compilation and optimised GPU Kernels. 
 
 
 ## The Research Question
@@ -9,7 +8,7 @@
 Does OneDiff improve the inference speed of our T2I and I2I pipelines while still providing high quality.
 
 ## Method
-	To evaluate the performance impact of OneDiff optimization, I conducted a series of tests using the provided benchmarking script. The methodology involved running the script multiple times for each model, with the number of inference steps consistently set to 10 across all runs. I specifically utilized the Nexfort compiler for all operations, as specified in the script. The testing process involved comparing the performance of runs with and without OneDiff optimization. For each run, I measured and recorded the inference time. To ensure fair comparisons, I maintained consistent parameters across all runs, including the number of inference steps and other relevant settings. This approach allowed for a structured assessment of the performance differences between standard model execution and the OneDiff-optimized version, all while leveraging the Nexfort compiler.
+To evaluate the performance impact of OneDiff optimization, I conducted a series of tests using the provided benchmarking script. The methodology involved running the script multiple times for each model, with the number of inference steps consistently set to 10 across all runs. I specifically utilized the Nexfort compiler for all operations, as specified in the script. The testing process involved comparing the performance of runs with and without OneDiff optimization. For each run, I measured and recorded the inference time. To ensure fair comparisons, I maintained consistent parameters across all runs, including the number of inference steps and other relevant settings. This approach allowed for a structured assessment of the performance differences between standard model execution and the OneDiff-optimized version, all while leveraging the Nexfort compiler.
  
 ## Results 
 
@@ -206,7 +205,7 @@ Image:
  ![i2i_512_withoutonediff](https://github.com/user-attachments/assets/a9273116-ab48-422e-a01a-76c73a4ca8af)
 
 ## Conclusion
-	it is evident that OneDiff consistently reduced inference time, leading to increased inference speed.While the source does not explicitly analyze the impact of OneDiff on image quality, it does provide sample images generated with and without OneDiff for each model and resolution.  A subjective visual comparison of these images suggests that the image quality remains largely unaffected by OneDiff optimization. 
+it is evident that OneDiff consistently reduced inference time, leading to increased inference speed.While the source does not explicitly analyze the impact of OneDiff on image quality, it does provide sample images generated with and without OneDiff for each model and resolution.  A subjective visual comparison of these images suggests that the image quality remains largely unaffected by OneDiff optimization. 
 
  ## Persnol Suggestion
-	Working with OneDiff in the current scenario has proven challenging due to several factors. The lack of comprehensive documentation has made it difficult to navigate and implement the library effectively. Testing capabilities are limited, as OneDiff doesn't currently support Kaggle P100 and T4 GPUs, which restricts the environments in which it can be evaluated. Furthermore, the library ecosystem surrounding OneDiff appears to be fragile, with interdependencies causing conflicts. Installing one component often leads to unexpected issues with others, creating a cascade of compatibility problems. This instability in the development environment has made it cumbersome to set up and maintain a reliable testing framework for OneDiff.
+Working with OneDiff in the current scenario has proven challenging due to several factors. The lack of comprehensive documentation has made it difficult to navigate and implement the library effectively. Testing capabilities are limited, as OneDiff doesn't currently support Kaggle P100 and T4 GPUs, which restricts the environments in which it can be evaluated. Furthermore, the library ecosystem surrounding OneDiff appears to be fragile, with interdependencies causing conflicts. Installing one component often leads to unexpected issues with others, creating a cascade of compatibility problems. This instability in the development environment has made it cumbersome to set up and maintain a reliable testing framework for OneDiff.
