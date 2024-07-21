@@ -112,7 +112,7 @@ Image:
     for Image 2 Image the images i am using are also the generated images from the above models under different size
 
 #### timbrooks/instruct-pix2pix
-##### 1024x1024 
+##### 1024x1024 Prompt(turn it into a painting) , Image used 1024 x 1024 without onediff generated image by RealVisXL_4.0
 ###### with OneDiff
 	Warmup time: 414.009s
 	=======================================
@@ -135,7 +135,7 @@ Image:
  Image:
  ![i2i_1024__timebrooks_withoutonediff](https://github.com/user-attachments/assets/e362e4ac-eb0a-4b58-87df-e835a6735386)
 
-##### 512 X 512  
+##### 512 X 512  Prompt(turn it into a painting) , Image used 512 x 512 without onediff generated image by RealVisXL_4.0
 ###### with OneDiff
 	Warmup time: 470.570s
 	=======================================
