@@ -116,6 +116,28 @@ Image:
 ##### 1024x1024 
 ###### with OneDiff
 
+###### without OneDiff
+##### 1024x1024 
+###### with OneDiff
+	Warmup time: 470.570s
+	=======================================
+	=======================================
+	Inference time: 0.790s
+	Iterations per second: 42.596
+	Max used CUDA memory : 2.693GiB
+	=======================================
+ Image:
+ ![i2i_512_timebrooks_withonediff](https://github.com/user-attachments/assets/be5f35c0-e497-4452-94e8-f922dfb835eb)
+###### without OneDiff
+	Warmup time: 1.883s
+	=======================================
+	=======================================
+	Inference time: 1.045s
+	Iterations per second: 31.124
+	Max used CUDA memory : 2.625GiB
+Image:
+![i2i_512_timebrooks_withoutonediff](https://github.com/user-attachments/assets/1b125d7e-ad53-478c-bcb6-1e5782cd4362)
+
 #### SG161222/RealVisXL_V4.0
 ##### 1024x1024  Prompt(make it into a cyborg) , Image used 1024 x 1024 without onediff generated image by RealVisXL_4.0
 ###### with OneDiff 
