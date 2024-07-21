@@ -1,3 +1,5 @@
+'''this is for timebrooks as if you want to use another model you can add its pipline at line 209 under def main()'''
+
 MODEL = "timbrooks/instruct-pix2pix"
 VARIANT = None
 CUSTOM_PIPELINE = None
