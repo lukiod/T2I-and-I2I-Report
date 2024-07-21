@@ -115,9 +115,28 @@ Image:
 #### timbrooks/instruct-pix2pix
 ##### 1024x1024 
 ###### with OneDiff
+	Warmup time: 414.009s
+	=======================================
+	=======================================
+	Inference time: 2.558s
+	Iterations per second: 12.674
+	Max used CUDA memory : 3.643GiB
+	=======================================
+ Image:
+ ![i2i_1024__timebrooks_withonediff](https://github.com/user-attachments/assets/a99dfb0a-faa3-4a37-85b1-ea0b3d55364e)
 
 ###### without OneDiff
-##### 1024x1024 
+	Warmup time: 5.245s
+	=======================================
+	=======================================
+	Inference time: 4.569s
+	Iterations per second: 7.035
+	Max used CUDA memory : 4.400GiB
+	=======================================
+ Image:
+ ![i2i_1024__timebrooks_withoutonediff](https://github.com/user-attachments/assets/e362e4ac-eb0a-4b58-87df-e835a6735386)
+
+##### 512 X 512  
 ###### with OneDiff
 	Warmup time: 470.570s
 	=======================================
