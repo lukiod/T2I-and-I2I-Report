@@ -9,9 +9,8 @@
 Does OneDiff improve the inference speed of our T2I and I2I pipelines while still providing high quality.
 
 ## Method
-
-How did you test this? Performed 10 inference requests without and with OneDiff and compared both the inference time and image quality.
-
+	To evaluate the performance impact of OneDiff optimization, I conducted a series of tests using the provided benchmarking script. The methodology involved running the script multiple times for each model, with the number of inference steps consistently set to 10 across all runs. I specifically utilized the Nexfort compiler for all operations, as specified in the script. The testing process involved comparing the performance of runs with and without OneDiff optimization. For each run, I measured and recorded the inference time. To ensure fair comparisons, I maintained consistent parameters across all runs, including the number of inference steps and other relevant settings. This approach allowed for a structured assessment of the performance differences between standard model execution and the OneDiff-optimized version, all while leveraging the Nexfort compiler.
+ 
 ## Results 
 
 ### Text-to-Image
@@ -207,6 +206,5 @@ Image:
  ![i2i_512_withoutonediff](https://github.com/user-attachments/assets/a9273116-ab48-422e-a01a-76c73a4ca8af)
 
 ## Conclusion
-
-Did it increase the inference speed while image quality was not affected?
+	it is evident that OneDiff consistently reduced inference time, leading to increased inference speed.While the source does not explicitly analyze the impact of OneDiff on image quality, it does provide sample images generated with and without OneDiff for each model and resolution.  A subjective visual comparison of these images suggests that the image quality remains largely unaffected by OneDiff optimization. 
 
