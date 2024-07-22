@@ -571,6 +571,68 @@ if __name__ == "__main__":
 
 ## Results 
 
+<details>
+	<summary>Compiler Oneflow</summary>
+	
+### Text-to-Image
+#### SG161222/RealVisXL_V4.0
+##### 1024x1024 
+###### with OneDiff
+	Warmup time: 68.700s
+	=======================================
+	=======================================
+	Inference time: 0.874s
+	Iterations per second: 16.183
+	Max used CUDA memory : 13.244GiB
+	=======================================
+ Image:
+ ![1024_Oneflow_SG161222_RealVisXL_V4 0](https://github.com/user-attachments/assets/091fe8e3-3506-4826-83cd-49ea78905392)
+
+
+###### without OneDiff
+	Warmup time: 2.439s
+	=======================================
+	=======================================
+	Inference time: 1.521s
+	Iterations per second: 8.326
+	Max used CUDA memory : 10.465GiB
+	=======================================
+  Image:
+  ![1024_without_Oneflow_SG161222_RealVisXL_V4 0](https://github.com/user-attachments/assets/345a9458-8aba-4368-977c-f40130fa8a12)
+##### 512x512 
+###### with OneDiff
+
+	Warmup time: 67.218s
+	=======================================
+	=======================================
+	Inference time: 0.332s
+	Iterations per second: 44.523
+	Max used CUDA memory : 10.031GiB
+	=======================================
+ Image:
+ ![512_Oneflow_SG161222_RealVisXL_V4 0](https://github.com/user-attachments/assets/017e38ec-5d14-4c08-83b9-23fa953c9ba2)
+
+###### without OneDiff
+	Warmup time: 1.755s
+	=======================================
+	=======================================
+	Inference time: 0.874s
+	Iterations per second: 13.381
+	Max used CUDA memory : 7.661GiB
+	=======================================
+
+Image:
+![512_without_Oneflow_SG161222_RealVisXL_V4 0](https://github.com/user-attachments/assets/959761af-1e87-4104-ada2-9e27568bd8d6)
+
+#### SG161222/RealVisXL_V4.0
+##### 1024x1024 
+###### with OneDiff
+ 
+
+</details>
+<details>
+	<summary>Compiler Nexfort</summary>
+	
 ### Text-to-Image
 #### SG161222/RealVisXL_V4.0_Lightning	
 ##### 1024x1024 
@@ -762,6 +824,7 @@ Image:
 	=======================================
  Image:
  ![i2i_512_withoutonediff](https://github.com/user-attachments/assets/a9273116-ab48-422e-a01a-76c73a4ca8af)
+ </details>
 
 ## Conclusion
 it is evident that OneDiff consistently reduced inference time, leading to increased inference speed.While the source does not explicitly analyze the impact of OneDiff on image quality, it does provide sample images generated with and without OneDiff for each model and resolution.  A subjective visual comparison of these images suggests that the image quality remains largely unaffected by OneDiff optimization. 
