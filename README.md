@@ -264,6 +264,202 @@ This documentation provides a breakdown of the code snippets, explaining their p
 <details>
 	<summary>Code Details</summary>
 	
+### Default Attributes:
+```
+MODEL = "timbrooks/instruct-pix2pix"
+VARIANT = None
+CUSTOM_PIPELINE = None
+SCHEDULER = "EulerAncestralDiscreteScheduler"
+LORA = None
+CONTROLNET = None
+STEPS = 30
+PROMPT = "make "
+NEGATIVE_PROMPT = ""
+SEED = 333
+WARMUPS = 1
+BATCH = 1
+HEIGHT = 512
+WIDTH = 512
+INPUT_IMAGE = "https://raw.githubusercontent.com/timothybrooks/instruct-pix2pix/main/imgs/example.jpg"  # Set a default input image path
+CONTROL_IMAGE = None
+OUTPUT_IMAGE = None
+EXTRA_CALL_KWARGS = None
+CACHE_INTERVAL = 3
+CACHE_LAYER_ID = 0
+CACHE_BLOCK_ID = 0
+COMPILER = "nexfort"
+COMPILER_CONFIG = None
+QUANTIZE_CONFIG = None
+```
+● This code block defines default values for various parameters used in the text-to-image generation process. These values serve as fallbacks if not specified by the user.
+### Argument Parsing and Configuration:
+```
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--model", type=str, default=MODEL)
+    parser.add_argument("--variant", type=str, default=VARIANT)
+    parser.add_argument("--custom-pipeline", type=str, default=CUSTOM_PIPELINE)
+    parser.add_argument("--scheduler", type=str, default=SCHEDULER)
+    # ... other argument definitions
+    return parser.parse_args()
+```
+`args = parse_args()`
+● This code defines the parse_args function to handle command-line arguments using argparse. It allows users to customize various aspects of the text-to-image generation process. The parsed arguments are stored in the args variable for later use throughout the script.
+### Pipeline Loading and Configuration:
+```
+def load_pipe(
+    pipeline_cls,
+    model_name,
+    variant=None,
+    dtype=torch.float16,
+    device="cuda",
+    custom_pipeline=None,
+    scheduler=None,
+    lora=None,
+    controlnet=None,
+):
+    # ... function implementation ...
+```
+● This function, load_pipe, is responsible for loading and configuring the text-to-image generation pipeline. It handles various components like custom pipelines, schedulers, LoRA, and ControlNet. The function also manages model loading, potential quantization, and device placement.
+### Inference Time and Throughput Calculation:
+```
+def calculate_inference_time_and_throughput(height, width, n_steps, model):
+    start_time = time.time()
+    model(prompt=args.prompt, height=height, width=width, num_inference_steps=n_steps)
+    end_time = time.time()
+    inference_time = end_time - start_time
+    throughput = n_steps / inference_time
+    return inference_time, throughput
+```
+● This function measures the performance of the text-to-image generation process. It calculates both the inference time and throughput (steps per second) for a single run of the model.
+### Keyword Argument Handling:
+```
+def get_kwarg_inputs():
+    kwarg_inputs = dict(
+        prompt=args.prompt,
+        negative_prompt=args.negative_prompt,
+        height=height,
+        width=width,
+        # ... other keyword arguments ...
+    )
+    # ... additional argument handling ...
+    return kwarg_inputs
+```
+● The get_kwarg_inputs function prepares a dictionary of keyword arguments for the pipeline. It includes various generation parameters and handles optional arguments like input images and deep caching options.
+### Performance Profiling:
+```
+class IterationProfiler:
+    def __init__(self):
+        self.begin = None
+        self.end = None
+        self.num_iterations = 0
+
+    # ... (methods for profiling)
+```
+● The IterationProfiler class is used for detailed performance profiling of the generation process. It tracks the timing of individual iterations using CUDA events.
+### Main Method Details:
+#### Pipeline Loading:
+```
+pipe = load_pipe(
+    pipeline_cls,
+    args.model,
+    variant=args.variant,
+    custom_pipeline=args.custom_pipeline,
+    scheduler=args.scheduler,
+    lora=args.lora,
+    controlnet=args.controlnet,
+)
+```
+● This code loads the specified diffusion model pipeline with various customization options.
+#### Image Size Determination:
+```
+pythonCopyheight = args.height or core_net.config.sample_size * pipe.vae_scale_factor
+width = args.width or core_net.config.sample_size * pipe.vae_scale_factor
+```
+● Sets the output image dimensions based on user arguments or model defaults.
+#### Compiler Optimization:
+```
+if args.compiler == "none":
+    pass
+elif args.compiler == "oneflow":
+    pipe = compile_pipe(pipe)
+elif args.compiler == "nexfort":
+    # ... (nexfort compilation logic)
+elif args.compiler in ("compile", "compile-max-autotune"):
+    # ... (torch.compile logic)
+```
+● Applies compiler optimizations to the pipeline based on the specified compiler option.
+#### Input Image Handling:
+```
+if args.input_image is None:
+    input_image = None
+else:
+    input_image = load_image(args.input_image)
+    input_image = input_image.resize((width, height), Image.LANCZOS)
+```
+● Loads and resizes an input image if specified for image-to-image tasks.
+#### Control Image Handling:
+```
+if args.control_image is None:
+    if args.controlnet is None:
+        control_image = None
+    else:
+        # ... (create a default control image)
+else:
+    control_image = load_image(args.control_image)
+    control_image = control_image.resize((width, height), Image.LANCZOS)
+```
+● Prepares a control image for ControlNet, either loading a specified image or creating a default one.
+#### Warm-up Runs:
+```
+if args.warmups > 0:
+    # ... (perform warm-up runs)
+```
+● Executes warm-up runs to trigger compilation and initial optimizations.
+#### Main Inference:
+```
+kwarg_inputs = get_kwarg_inputs()
+iter_profiler = IterationProfiler()
+# ... (set up profiling callback)
+begin = time.time()
+output_images = pipe(**kwarg_inputs).images
+end = time.time()
+● Performs the main image generation inference with profiling.
+Performance Reporting:
+pythonCopyprint(f"Inference time: {end - begin:.3f}s")
+iter_per_sec = iter_profiler.get_iter_per_sec()
+if iter_per_sec is not None:
+    print(f"Iterations per second: {iter_per_sec:.3f}")
+# ... (memory usage reporting)
+```
+● Reports various performance metrics including inference time and iterations per second.
+#### Output Image Saving:
+```
+if args.output_image is not None:
+    output_images[0].save(args.output_image)
+```
+● Saves the generated image if an output path is specified.
+#### Multi-resolution Testing:
+```
+if args.run_multiple_resolutions:
+    # ... (run inference at multiple resolutions)
+```
+● Tests the model's performance across various image resolutions.
+#### Throughput Analysis:
+```
+if args.throughput:
+    steps_range = range(1, 100, 1)
+    data, coefficients = generate_data_and_fit_model(pipe, steps_range)
+    plot_data_and_model(data, coefficients)
+```
+● Performs a detailed throughput analysis across different numbers of inference steps and plots the results.
+#### Main Execution Block:
+```
+if __name__ == "__main__":
+    main()
+```
+● Ensures that the main() function is called only when the script is run directly, not when it's imported as a module.
+	
 </details>
 
 
