@@ -680,9 +680,55 @@ Image:
  ![512_without_Oneflow_SG161222_RealVisXL_V4 0_Lightning](https://github.com/user-attachments/assets/5ddd67a3-e6b0-49bf-aae0-56ac5173a9c8)
  
 ### Image-to-Image
-#### SG161222/RealVisXL_V4.0
+For 1024 x 1024 size images i have used 1024 sized image generated from RealVisXL_V4.0 model and same for 512 too. prompt ("trun her into a cyborg") 
+#### SG161222/RealVisXL_V4.0 
 ##### 1024x1024 
 ###### with OneDiff
+	Warmup time: 70.647s
+	=======================================
+	=======================================
+	Inference time: 0.871s
+	Iterations per second: 16.199
+	Max used CUDA memory : 13.302GiB
+	=======================================
+Image:
+![Test_1024_With_Oneflow_I2I_SG161222_RealVisXL_V4 0](https://github.com/user-attachments/assets/cf95511a-25bb-4187-95ff-34c9257c8e7b)
+
+###### without OneDiff
+	Warmup time: 2.313s
+	=======================================
+	=======================================
+	Inference time: 1.522s
+	Iterations per second: 8.290
+	Max used CUDA memory : 10.471GiB
+	=======================================
+Image:
+![Test_1024_Without_Oneflow_I2I_SG161222_RealVisXL_V4 0](https://github.com/user-attachments/assets/30169f39-12ff-47c3-9c1c-71012eadb89a)
+
+##### 512x512 
+###### with OneDiff
+	Warmup time: 72.229s
+	=======================================
+	=======================================
+	Inference time: 0.325s
+	Iterations per second: 47.863
+	Max used CUDA memory : 10.031GiB
+	=======================================
+ Image:
+ ![Test_512_With_Oneflow_I2I_SG161222_RealVisXL_V4 0](https://github.com/user-attachments/assets/6dfa5ae7-c455-4679-81a2-81d894a5aaa3)
+
+
+###### without OneDiff
+	Warmup time: 1.784s
+	=======================================
+	=======================================
+	Inference time: 0.898s
+	Iterations per second: 12.942
+	Max used CUDA memory : 7.661GiB
+	=======================================
+ Image:
+ ![Test_512_Without_Oneflow_I2I_SG161222_RealVisXL_V4 0](https://github.com/user-attachments/assets/058a5d1e-b711-476e-9302-5040b86cdcbf)
+
 
 #### timbrooks/instruct-pix2pix
 ##### 1024x1024 
