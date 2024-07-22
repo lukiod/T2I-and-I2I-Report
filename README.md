@@ -15,10 +15,12 @@ To evaluate the performance impact of OneDiff optimization, I conducted a series
 
 `python3 -m  pip install -U nexfort`
 
+`pip install onediffx`
+
 ### How to run the file independently
 If you want to run with onediff use compiler nexfort otherwise none
 #### Text 2 Image Conversion
-`python3 ./text_to_image.py  --scheduler none --steps 50 --height 1024 --width 1024 --compiler none --compiler-config '{"mode": "max-optimize:max-autotune:low-precision", "memory_format": "channels_last", "dynamic": true}' --output-image ./test.png`
+`python3 ./text_to_image.py  --scheduler none --steps 10 --height 1024 --width 1024 --compiler none --compiler-config '{"mode": "max-optimize:max-autotune:low-precision", "memory_format": "channels_last", "dynamic": true}' --output-image ./test.png`
 <details>
 	<summary>Code Details</summary>
 
@@ -677,10 +679,56 @@ Image:
  Image:
  ![512_without_Oneflow_SG161222_RealVisXL_V4 0_Lightning](https://github.com/user-attachments/assets/5ddd67a3-e6b0-49bf-aae0-56ac5173a9c8)
  
-### Text-to-Image
+### Image-to-Image
 #### SG161222/RealVisXL_V4.0
 ##### 1024x1024 
 ###### with OneDiff
+
+#### timbrooks/instruct-pix2pix
+##### 1024x1024 
+###### with OneDiff
+	Warmup time: 45.665s
+	=======================================
+	=======================================
+	Inference time: 0.888s
+	Iterations per second: 13.108
+	Max used CUDA memory : 13.079GiB
+	=======================================
+Image:
+![Test_1024_With_Oneflow_I2I_timbrooks_instruct-pix2pix](https://github.com/user-attachments/assets/110adee8-6e4d-40f4-b13a-666264c8b039)
+###### without OneDiff
+	Warmup time: 2.343s
+	=======================================
+	=======================================
+	Inference time: 1.723s
+	Iterations per second: 7.033
+	Max used CUDA memory : 4.400GiB
+	=======================================
+ Image:
+ ![Test_1024_Without_Oneflow_I2I_timbrooks_instruct-pix2pix](https://github.com/user-attachments/assets/2b7b00e1-face-422e-acc5-bd48c7697dda)
+##### 512 x 512 
+###### with OneDiff
+	Warmup time: 38.675s
+	=======================================
+	=======================================
+	Inference time: 0.187s
+	Iterations per second: 69.570
+	Max used CUDA memory : 4.636GiB
+	=======================================
+ Image:
+ ![Test_512_With_Oneflow_I2I_timbrooks_instruct-pix2pix](https://github.com/user-attachments/assets/5a7e4396-db5b-4102-94b9-5c6b43882aaa)
+
+
+###### without OneDiff
+	Warmup time: 1.231s
+	=======================================
+	=======================================
+	Inference time: 0.397s
+	Iterations per second: 31.571
+	Max used CUDA memory : 2.613GiB
+	=======================================
+Image:
+![Test_512_Without_Oneflow_I2I_timbrooks_instruct-pix2pix](https://github.com/user-attachments/assets/546fda0b-050c-4bcb-b46c-7327ee2f933a)
 
 </details>
 <details>
