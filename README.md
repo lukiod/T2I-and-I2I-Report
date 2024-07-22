@@ -624,10 +624,63 @@ if __name__ == "__main__":
 Image:
 ![512_without_Oneflow_SG161222_RealVisXL_V4 0](https://github.com/user-attachments/assets/959761af-1e87-4104-ada2-9e27568bd8d6)
 
+#### SG161222/RealVisXL_V4.0_Lightning
+##### 1024x1024 
+###### with OneDiff
+	Warmup time: 71.707s
+	=======================================
+	=======================================
+	Inference time: 0.863s
+	Iterations per second: 16.257
+	Max used CUDA memory : 13.248GiB
+	=======================================
+ Image:
+ ![1024_Oneflow_SG161222_RealVisXL_V4 0_Lightning](https://github.com/user-attachments/assets/94897ae8-32d0-4f84-9a1f-d54bd5984ea6)
+
+
+###### without OneDiff
+	Warmup time: 2.405s
+	=======================================
+	=======================================
+	Inference time: 1.536s
+	Iterations per second: 8.325
+	Max used CUDA memory : 10.470GiB
+	=======================================
+ Image:
+ ![1024_without_Oneflow_SG161222_RealVisXL_V4 0_Lightning](https://github.com/user-attachments/assets/5fada763-1bf8-47ee-a5ec-54c084a588ea)
+
+ 
+
+##### 512x 512 
+###### with OneDiff
+
+	Warmup time: 67.914s
+	=======================================
+	=======================================
+	Inference time: 0.337s
+	Iterations per second: 42.992
+	Max used CUDA memory : 10.085GiB
+	=======================================
+ 
+Image:
+![512_Oneflow_SG161222_RealVisXL_V4 0_Lightning](https://github.com/user-attachments/assets/8f3ebb72-234f-491c-8362-1c0f169eb61a)
+
+
+###### without OneDiff
+	Warmup time: 1.817s
+	=======================================
+	=======================================
+	Inference time: 0.890s
+	Iterations per second: 13.250
+	Max used CUDA memory : 7.656GiB
+	=======================================
+ Image:
+ ![512_without_Oneflow_SG161222_RealVisXL_V4 0_Lightning](https://github.com/user-attachments/assets/5ddd67a3-e6b0-49bf-aae0-56ac5173a9c8)
+ 
+### Text-to-Image
 #### SG161222/RealVisXL_V4.0
 ##### 1024x1024 
 ###### with OneDiff
- 
 
 </details>
 <details>
