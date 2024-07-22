@@ -576,7 +576,9 @@ if __name__ == "__main__":
 <details>
 	<summary>Compiler Oneflow</summary>
 	
-### Text-to-Image
+<details>
+	<summary>Text-to-Image</summary>
+
 #### SG161222/RealVisXL_V4.0
 ##### 1024x1024 
 ###### with OneDiff
@@ -678,8 +680,11 @@ Image:
 	=======================================
  Image:
  ![512_without_Oneflow_SG161222_RealVisXL_V4 0_Lightning](https://github.com/user-attachments/assets/5ddd67a3-e6b0-49bf-aae0-56ac5173a9c8)
+ </details>
  
-### Image-to-Image
+ <details>
+	 <summary>Image-to-Image</summary>
+
 For 1024 x 1024 size images i have used 1024 sized image generated from RealVisXL_V4.0 model and same for 512 too. prompt ("trun her into a cyborg") 
 #### SG161222/RealVisXL_V4.0 
 ##### 1024x1024 
@@ -775,12 +780,16 @@ Image:
 	=======================================
 Image:
 ![Test_512_Without_Oneflow_I2I_timbrooks_instruct-pix2pix](https://github.com/user-attachments/assets/546fda0b-050c-4bcb-b46c-7327ee2f933a)
+</details>
 
 </details>
+
 <details>
 	<summary>Compiler Nexfort</summary>
+
+<details>
+	<summary>Text-to-Image</summary>
 	
-### Text-to-Image
 #### SG161222/RealVisXL_V4.0_Lightning	
 ##### 1024x1024 
 ###### with OneDiff
@@ -873,10 +882,12 @@ Image:
 	=======================================
 Image:
 ![RealVisXL4 0_withonediff_512](https://github.com/user-attachments/assets/60d47acf-b961-4f26-9cf9-9d3bd705875d)
+</details>
 
+<details>
+	<summary>Image-to-image</summary>
 
-### Image-to-image
-    for Image 2 Image the images i am using are also the generated images from the above models under different size
+For Image 2 Image the images i am using are also the generated images from the above models under different size
 
 #### timbrooks/instruct-pix2pix
 ##### 1024x1024 Prompt(turn it into a painting) , Image used 1024 x 1024 without onediff generated image by RealVisXL_4.0
@@ -971,6 +982,9 @@ Image:
 	=======================================
  Image:
  ![i2i_512_withoutonediff](https://github.com/user-attachments/assets/a9273116-ab48-422e-a01a-76c73a4ca8af)
+
+ </details>
+ 
  </details>
 
 ## Conclusion
