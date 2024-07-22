@@ -21,6 +21,59 @@ If you want to run with onediff use compiler nexfort otherwise none
 `python3 ./text_to_image.py  --scheduler none --steps 50 --height 1024 --width 1024 --compiler none --compiler-config '{"mode": "max-optimize:max-autotune:low-precision", "memory_format": "channels_last", "dynamic": true}' --output-image ./test.png`
 <details>
 	<summary>Code Details</summary>
+
+### Script used for model usage using nexfort
+```
+ print("Nexfort backend is now active...")
+        if args.quantize:
+            if args.quantize_config is not None:
+                quantize_config = json.loads(args.quantize_config)
+            else:
+                quantize_config = '{"quant_type": "fp8_e4m3_e4m3_dynamic"}'
+            if args.quant_submodules_config_path:
+                # download: https://huggingface.co/siliconflow/PixArt-alpha-onediff-nexfort-fp8/blob/main/fp8_e4m3.json
+                pipe = quantize_pipe(
+                    pipe,
+                    quant_submodules_config_path=args.quant_submodules_config_path,
+                    ignores=[],
+                    **quantize_config,
+                )
+            else:
+                pipe = quantize_pipe(pipe, ignores=[], **quantize_config)
+        if args.compiler_config is not None:
+            # config with dict
+            options = json.loads(args.compiler_config)
+        else:
+            # config with string
+            options = '{"mode": "max-optimize:max-autotune:freezing", "memory_format": "channels_last"}'
+        pipe = compile_pipe(
+            pipe, backend="nexfort", options=options, fuse_qkv_projections=True
+        ) print("Nexfort backend is now active...")
+        if args.quantize:
+            if args.quantize_config is not None:
+                quantize_config = json.loads(args.quantize_config)
+            else:
+                quantize_config = '{"quant_type": "fp8_e4m3_e4m3_dynamic"}'
+            if args.quant_submodules_config_path:
+                # download: https://huggingface.co/siliconflow/PixArt-alpha-onediff-nexfort-fp8/blob/main/fp8_e4m3.json
+                pipe = quantize_pipe(
+                    pipe,
+                    quant_submodules_config_path=args.quant_submodules_config_path,
+                    ignores=[],
+                    **quantize_config,
+                )
+            else:
+                pipe = quantize_pipe(pipe, ignores=[], **quantize_config)
+        if args.compiler_config is not None:
+            # config with dict
+            options = json.loads(args.compiler_config)
+        else:
+            # config with string
+            options = '{"mode": "max-optimize:max-autotune:freezing", "memory_format": "channels_last"}'
+        pipe = compile_pipe(
+            pipe, backend="nexfort", options=options, fuse_qkv_projections=True
+        )
+```
 	
 ### Default Attributes:
 
@@ -263,6 +316,59 @@ This documentation provides a breakdown of the code snippets, explaining their p
 `python3 testi2i.py --input-image ./RealVisXL_withoutonediff_1024.png --height 1024 --width 1024 --compiler none --output-image ./i2i_1024__timebrooks_withoutonediff.png --prompt "turn it into a painting painted by paintbrush"`
 <details>
 	<summary>Code Details</summary>
+
+ ### Script used for model usage using nexfort
+```
+ print("Nexfort backend is now active...")
+        if args.quantize:
+            if args.quantize_config is not None:
+                quantize_config = json.loads(args.quantize_config)
+            else:
+                quantize_config = '{"quant_type": "fp8_e4m3_e4m3_dynamic"}'
+            if args.quant_submodules_config_path:
+                # download: https://huggingface.co/siliconflow/PixArt-alpha-onediff-nexfort-fp8/blob/main/fp8_e4m3.json
+                pipe = quantize_pipe(
+                    pipe,
+                    quant_submodules_config_path=args.quant_submodules_config_path,
+                    ignores=[],
+                    **quantize_config,
+                )
+            else:
+                pipe = quantize_pipe(pipe, ignores=[], **quantize_config)
+        if args.compiler_config is not None:
+            # config with dict
+            options = json.loads(args.compiler_config)
+        else:
+            # config with string
+            options = '{"mode": "max-optimize:max-autotune:freezing", "memory_format": "channels_last"}'
+        pipe = compile_pipe(
+            pipe, backend="nexfort", options=options, fuse_qkv_projections=True
+        ) print("Nexfort backend is now active...")
+        if args.quantize:
+            if args.quantize_config is not None:
+                quantize_config = json.loads(args.quantize_config)
+            else:
+                quantize_config = '{"quant_type": "fp8_e4m3_e4m3_dynamic"}'
+            if args.quant_submodules_config_path:
+                # download: https://huggingface.co/siliconflow/PixArt-alpha-onediff-nexfort-fp8/blob/main/fp8_e4m3.json
+                pipe = quantize_pipe(
+                    pipe,
+                    quant_submodules_config_path=args.quant_submodules_config_path,
+                    ignores=[],
+                    **quantize_config,
+                )
+            else:
+                pipe = quantize_pipe(pipe, ignores=[], **quantize_config)
+        if args.compiler_config is not None:
+            # config with dict
+            options = json.loads(args.compiler_config)
+        else:
+            # config with string
+            options = '{"mode": "max-optimize:max-autotune:freezing", "memory_format": "channels_last"}'
+        pipe = compile_pipe(
+            pipe, backend="nexfort", options=options, fuse_qkv_projections=True
+        )
+```
 	
 ### Default Attributes:
 ```
