@@ -1,4 +1,4 @@
-'''this is for timebrooks as if you want to use another model you can add its pipline at line 209 under def main()'''
+'''this is for timebrooks as if you want to use another model you can add its pipline at line 209 under def main() and it can work with any kind of models just change the libs'''
 
 MODEL = "timbrooks/instruct-pix2pix"
 VARIANT = None

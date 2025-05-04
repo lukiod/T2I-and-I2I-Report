@@ -1,4 +1,4 @@
-# T2I-and-I2I-Report
+# T2I-and-I2I-Report For Genai
 # What is OneDiff
 OneDiff is an acceleration library for diffusion models, allowing for faster inference with minimal code changes. The name stands 	for "one line of code to accelerate diffusion models". It achieves this through features like PyTorch Module compilation and optimised GPU Kernels. 
 
