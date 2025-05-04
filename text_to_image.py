@@ -1,4 +1,4 @@
-"This is the code for any kind of diffuser based text to image generation"
+'''This is the code for any kind of diffuser based text to image generation'''
 MODEL = "SG161222/RealVisXL_V4.0"
 VARIANT = None
 CUSTOM_PIPELINE = None
